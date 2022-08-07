@@ -2,9 +2,9 @@
 import express from "express";
 import monggose from "mongoose";
 import dotenv from "dotenv";
-import userRoutes from "./routes/users.js";
-import commentRoutes from "./routes/comments";
-import videoRoutes from "./routes/videos";
+import userRouter from "./router/user.router";
+import commentRouter from "./router/comment.router";
+import videoRouter from "./router/video.router";
 
 dotenv.config();
 const app = express();
@@ -22,9 +22,9 @@ const connect = () => {
     });
 };
 
-app.use("/api/users", userRoutes);
-app.use("/api/comments", commentRoutes);
-app.use("/api/videos", videoRoutes);
+app.use("/api/users", userRouter);
+app.use("/api/comments", commentRouter);
+app.use("/api/videos", videoRouter);
 
 app.listen(8800, () => {
   connect();
