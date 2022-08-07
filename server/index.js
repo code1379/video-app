@@ -2,6 +2,7 @@
 import express from "express";
 import monggose from "mongoose";
 import dotenv from "dotenv";
+import userRoutes from "./routes/users.js";
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,8 @@ const connect = () => {
       throw err;
     });
 };
+
+app.use("/api/users", userRoutes);
 
 app.listen(8800, () => {
   connect();
