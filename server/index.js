@@ -3,6 +3,8 @@ import express from "express";
 import monggose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
+import commentRoutes from "./routes/comments";
+import videoRoutes from "./routes/videos";
 
 dotenv.config();
 const app = express();
@@ -21,6 +23,8 @@ const connect = () => {
 };
 
 app.use("/api/users", userRoutes);
+app.use("/api/comments", commentRoutes);
+app.use("/api/videos", videoRoutes);
 
 app.listen(8800, () => {
   connect();
